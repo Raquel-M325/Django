@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma de Estudos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+</head>
+<body>
+    <header class="section">
+        <div class="container">
+            <h1 class="title is-1">Questão 3</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2 class="title is-2">Gerador de Cronograma de Estudos</h2>
+
+                <form method="get">
+                    <p>Escolha qual dos dias você quer estudar:</p>
+
+                    {% for dia in semana %}
+                        <br>
+                        <label class="checkbox">
+                            <input type="checkbox" name="dias" value="{{ dia }}"> {{ dia }}
+                        </label>
+                    {% endfor %}
+                    
+                    <br><br>
+                    <label for="lista">Digite os temas que você vai estudar:</label>
+                    <input class="input" type="text" name="temas" placeholder="Historia, Geografia, Português">
+                    
+                    <br><br><button type="submit" class="button is-medium is-success has-text-white">Gerar cronograma</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <table class="table is-bordered is-striped is-fullwidth">
+                    <thead>
+                        <tr>
+                            {% for dia in semana %}
+                                <th>{{ dia }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            {% for item in cronograma_lista %}
+                                <td>
+                                    {% if item.temas %}
+                                        {% for tema in item.temas %}
+                                            <p>{{ tema }}</p>
+                                        {% endfor %}
+                                    {% else %}
+                                        <p>-</p> 
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+    
+</body>
+</html>

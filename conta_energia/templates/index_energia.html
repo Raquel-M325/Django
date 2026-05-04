@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conta de Energia Elétrica</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+</head>
+<body>
+    <header class="section">
+        <div class="container">
+            <h1 class="title is-1">Questão 1</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2 class="title is-2 has-text-centered">Calculadora da Conta de Energia</h2>
+                <form method="get" class="field is-grouped is-grouped-centered mb-4"> 
+
+                   <input class="input is-medium" type="number" name="consumo" placeholder="Digite o consumo em kWh"> <br>
+
+                   <br><button type="submit" class="button is-primary is-medium has-text-white">Calcular</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Se ocorrer o custo, a pessoa que colocou o valor, irá mostrar o total do custo -->
+        <section class="section">
+            <div class="notification is-success is-light has-text-centered">
+                {% if custo %} 
+                    <p><b>Total: </b> R$ {{ custo|floatformat:2 }}</p>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>

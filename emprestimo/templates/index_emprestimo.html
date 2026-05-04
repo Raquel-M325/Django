@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empréstimo Pessoal</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+</head>
+<body>
+    <header class="section">
+        <div class="container">
+            <h1 class="title is-1">Questão 2</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2 class="title is-2">Calculadora de Empréstimo Pessoal</h2>
+                <form method="get">
+
+                    <!-- Tem que estarem o mesmo nome no return dicionario para se interligar -->
+
+                    {% for i in exibicao %}
+                        <label>{{ i.mostrar }}</label>
+                        <input type="number" class="input" name="{{ i.nome_request }}"><br><br>
+                    {% endfor %}
+                    
+                    <button type="submit" class="button is-medium is-success has-text-white">Calcular</button>
+                </form>
+            </div>
+        </section>
+
+        <section>
+            <div class="notification is-success is-light has-text-centered">
+                {% if montante and parcela %}
+                    <p><b>Montante: </b> R$ {{ montante|floatformat:2 }} <br></p>
+                    <p><b>Parcela: </b> R$ {{ parcela|floatformat:2 }}</p>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Enquetes</title>
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>  <!-- define o htmx -->
+</head>
+    
+<body>
+    <header class="section">
+        <div class="container">
+            <h1 class="title is-1">Qual série é o melhor?</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <form method="get">
+
+                {% for item in desenhos %} 
+                <!-- quero só as chaves no dicionário, por isso não precisa do desenhos.itens -->  
+                    <label class="radio">
+                        <input type="radio" name="desenho" value="{{ item }}">
+                        {{ item }}
+                    </label> <br>
+
+                {% endfor %}
+                    
+                <br><button type="submit" class="button is-primary" hx-get="" hx-target="">Votar</button>
+
+                </form>
+            </div>
+            
+        </section><br>
+
+        <section class="section">
+            <div class="container">
+                
+                <h2 class="title is-2">Resultados</h2>
+
+                <table class="table is-striped is-hoverable is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Opção</th>
+                            <th>Votos</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for nome, qtd in resultados.items %}
+                        <!-- nome = chave, qtd = itens no dicionario que associa no resultados  -->
+                            <tr>
+                                <td> {{ nome }}</td>
+                                <td> {{ qtd }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>     
+        </section>
+        
+    </main>
+</body>
+</html>
