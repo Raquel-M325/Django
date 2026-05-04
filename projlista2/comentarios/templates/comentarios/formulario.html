@@ -1,0 +1,17 @@
+<form id="form-comentario-{{ numero_postagem }}">
+    {% csrf_token %}
+    <input type="text" name="autor" placeholder="Seu nome" class="input is-medium" required>
+    <br><br>
+    <textarea name="conteudo" placeholder="Escreva seu comentário" class="textarea is-medium" required></textarea>
+    <br><br>
+    <button type="button" class="button is-success" data-numero="{{ numero_postagem }}" onclick="comenteiAqui(this.dataset.numero)">Enviar Comentário</button></form>
+
+<!-- é a mensagem do sucesso -->
+<div id="ok-{{ numero_postagem }}" style="display:none; margin-top:10px" class="box mt-4 has-background-success-light"></div>
+
+<!-- exibe a mensagem do comentario em uma lista -->
+<div id="resultado-{{ numero_postagem }}" style="display:none; margin-top:10px">
+    <ul>
+        <li id="comentou-{{ numero_postagem }}"></li>
+    </ul>
+</div>

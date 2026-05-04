@@ -1,0 +1,15 @@
+<form id="form-cidade">
+    <input class="input is-medium" id="cidade" type="text" placeholder="Digite o nome da cidade">
+    <br><br>
+    <button class="button is-primary" type="button" onclick="buscarCidade()">Ver a previsão do tempo</button>
+</form>
+
+<br><br>
+<div id="resultado" style="display:none" class="box mt-4 ">
+    <ul id="lista-resultado" style="display: none;">
+        <li><b>Cidade: </b> <span id="resposta-cidade"></span></li>
+        <li><b>Clima: </b> <span id="resposta-clima"></span></li>
+        <li><b>Temperatura: </b> <span id="resposta-temperatura"></span></li>
+    </ul>
+    <p id="resposta-erro"></p>
+</div>

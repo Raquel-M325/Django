@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script defer src="{% static 'comentarios/js/comentario.js' %}"></script>
+</head>
+<body>
+    <header class="section">
+        <div class="container">
+            <h1 class="title is-1">{{ h1_titulo }}</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                {% for postagem in postagens %}
+                    <div class="box">
+                        <h2 class="title is-2">{{ postagem.titulo }}</h2>
+                        <p>{{ postagem.conteudo }}</p> <br>
+
+                        {% include 'comentarios/formulario.html' with numero_postagem=forloop.counter %}
+                    </div> 
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>

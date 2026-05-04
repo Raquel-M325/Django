@@ -1,0 +1,37 @@
+<form hx-post="/fretes/frete/" 
+    hx-target="#mostra_tabela"
+    hx-swap="innerHTML">
+    {% csrf_token %}
+
+    <select class="input is-medium" name="origem" required>
+        <option value="">Selecione a origem</option>
+        <option value="Fortaleza">Fortaleza</option>
+        <option value="Natal">Natal</option>
+        <option value="Recife">Recife</option>
+        <option value="Joao Pessoa">João Pessoa</option>
+        <option value="Maceio">Maceió</option>
+        <option value="Aracaju">Aracaju</option>
+        <option value="Salvador">Salvador</option>
+        <option value="Teresina">Teresina</option>
+        <option value="Sao Luis">São Luís</option>
+    </select>
+    <br><br>
+
+    <select class="input is-medium" name="destino" required>
+        <option value="">Selecione o destino</option>
+        <option value="Fortaleza">Fortaleza</option>
+        <option value="Natal">Natal</option>
+        <option value="Recife">Recife</option>
+        <option value="Joao Pessoa">João Pessoa</option>
+        <option value="Maceio">Maceió</option>
+        <option value="Aracaju">Aracaju</option>
+        <option value="Salvador">Salvador</option>
+        <option value="Teresina">Teresina</option>
+        <option value="Sao Luis">São Luís</option>
+    </select>
+    <br><br>
+
+    <button class="button is-primary" type="submit">Ver o frete</button>
+</form>
+
+<div id="mostra_tabela"></div>

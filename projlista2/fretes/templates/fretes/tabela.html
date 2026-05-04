@@ -1,0 +1,28 @@
+{% if erro %}
+    <br><br>
+    <div class="notification is-danger">
+        {{ erro }}
+    </div>
+
+{% else %}
+    <br><br>
+    <table class="table is-bordered is-striped  is-fullwidth">
+        <thead class="has-background-primary-dark">
+            <tr>
+                <th class="has-text-white">{{ lista_tabela_coluna.0 }}</th>
+                <th class="has-text-white">{{ lista_tabela_coluna.1 }}</th>
+                <th class="has-text-white">{{ lista_tabela_coluna.2 }}</th>
+            </tr>
+        </thead>
+        <tbody class="has-background-success-light">
+            <tr>
+                <td>{{ origem }}</td>
+                <td>{{ destino }}</td>
+                <td><b>{{ valor|floatformat:2 }} R$</b></td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endif %}
+
+<!-- lembrando que o uso do id é mais para JS, já que não iremos usar, não precisa usar id, só usar {} direto -->
