@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando</title>
+</head>
+<body>
+    <main>
+        
+        <section>
+            <button onclick="carregarMensagem()">Carregar Mensagem</button>
+            <p id="mensagem"></p>
+
+            <script>
+                function carregarMensagem(){
+                    fetch("{% url 'imc:mensagem'%}")
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("mensagem").innerText = data.texto;
+                    });
+                }
+            </script>
+        </section>
+    </main>
+</body>
+</html>
